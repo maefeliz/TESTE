@@ -1,3 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combo Trick - Dicas e Truques para Free Fire</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1, h2, h3, h4 {
+      color: #00ff00; /* neon green */
+      text-shadow: 0 0 8px #00ff00;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+    strong, .highlight {
+      color: #00ff00;
+      font-weight: 700;
+      text-shadow: 0 0 6px #00ff00;
+    }
+    .important {
+      background: #003300;
+      border-left: 5px solid #00ff00;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: #0a0a0a;
+      color: #00ff00;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 0 15px #00ff00;
+      border-bottom: 2px solid #00ff00;
+    }
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #004400, #001100);
+      padding: 4rem 20px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ff00 inset;
+      margin-bottom: 3rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #aaffaa;
+      text-shadow: 0 0 4px #00ff00;
+    }
+    .hero video {
+      max-width: 100%;
+      height: auto;
+      border: 3px solid #00ff00;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ff00;
+    }
+    .btn-primary {
+      background: #00ff00;
+      color: #001100;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      font-weight: 700;
+      box-shadow: 0 0 15px #00ff00;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #00cc00;
+      color: #000800;
+      box-shadow: 0 0 25px #00cc00;
+    }
+
+    /* Section */
+    section {
+      padding: 3rem 0;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Results */
+    .results {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .result-item {
+      background: #001100;
+      border: 2px solid #00ff00;
+      padding: 1.5rem 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00ff00;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ff00;
+      user-select: none;
+      transition: transform 0.3s ease;
+      text-align: center;
+      min-width: 70px;
+    }
+    .result-item:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 30px #00ff00;
+    }
+
+    /* Features */
+    .features-list ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding-left: 0;
+    }
+    .features-list li {
+      position: relative;
+      padding-left: 2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #aaffaa;
+      text-shadow: 0 0 3px #00ff00;
+    }
+    .features-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #00ff00;
+      font-weight: 900;
+      font-size: 1.3rem;
+      line-height: 1;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    /* Pricing Cards */
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #001100;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #00ff00;
+      padding: 2rem;
+      max-width: 400px;
+      flex: 1 1 300px;
+      color: #aaffaa;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px #00ff00;
+    }
+    .card h3 {
+      color: #00ff00;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      text-align: center;
+      text-shadow: 0 0 10px #00ff00;
+    }
+    .card ul {
+      list-style: none;
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card ul li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #aaffaa;
+      text-shadow: 0 0 3px #00ff00;
+    }
+    .card ul li::before {
+      content: '➤';
+      position: absolute;
+      left: 0;
+      color: #00ff00;
+      font-weight: 900;
+      font-size: 1.2rem;
+      line-height: 1;
+      text-shadow: 0 0 5px #00ff00;
+    }
+    .price-new {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 15px #00ff00;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      align-self: center;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background: #00cc00;
+      color: #001100;
+      outline: none;
+      box-shadow: 0 0 20px #00cc00;
+    }
+
+    /* Guarantee Section */
+    .guarantee {
+      background: #002200;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      box-shadow: 0 0 40px #00ff00 inset;
+      text-align: center;
+      color: #aaffaa;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Mentor Section */
+    .mentor {
+      background: #001100;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      box-shadow: 0 0 40px #00ff00 inset;
+      color: #aaffaa;
+    }
+    .mentor h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      text-align: center;
+      text-shadow: 0 0 10px #00ff00;
+    }
+    .mentor p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .mentor img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00ff00;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    /* FAQ Section */
+    .faq {
+      background: #002200;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem auto 4rem;
+      max-width: 900px;
+      box-shadow: 0 0 40px #00ff00 inset;
+      color: #aaffaa;
+    }
+    .faq h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: 0 0 10px #00ff00;
+    }
+    .faq dl {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq dt {
+      font-weight: 700;
+      color: #00ff00;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      background: #003300;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 0 15px #00ff00;
+      user-select: none;
+      transition: background 0.3s ease;
+      font-size: 1.1rem;
+    }
+    .faq dt:hover {
+      background: #005500;
+    }
+    .faq dd {
+      padding: 1rem 2rem;
+      margin-bottom: 1rem;
+      background: #001a00;
+      border-radius: 8px;
+      display: none;
+      color: #aaffaa;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: 1rem;
+      text-shadow: 0 0 3px #00ff00;
+    }
+    .faq dd.show {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      color: #00ff00;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 2px solid #00ff00;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #00ff00;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .results {
+        justify-content: space-around;
+      }
+      .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        max-width: 100%;
+      }
+      .features-list ul {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Combo Trick</h1>
+      <p>Dicas e Truques para Dominar o Free Fire</p>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-label="Conteúdo principal">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="highlight">Você já imaginou ter uma mira que só conta capa? Assista o vídeo abaixo e entenda:</p>
+      <h2 id="hero-title" class="important">QUERO TER ACESSO AO COMBO TRICK</h2>
+      <video controls preload="metadata" aria-describedby="video-desc" style="max-height: 400px; border: 3px solid #00ff00; border-radius: 10px; box-shadow: 0 0 20px #00ff00;">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo.
+      </video>
+      <p id="video-desc" class="highlight" style="margin-top: 1rem;">Essas 3 ferramentas nas suas mãos, vão quebrar o Free Fire</p>
+      <button class="btn-primary" onclick="alert('Acesso ao Combo Trick solicitado!')">QUERO TER ACESSO AO COMBO TRICK</button>
+    </section>
+
+    <section aria-labelledby="results-title">
+      <h2 id="results-title" class="important">Resultados dos primeiros usuários do Combo Trick</h2>
+      <div class="results" role="list" aria-label="Resultados dos usuários">
+        <div class="result-item" role="listitem" tabindex="0" aria-label="Resultado 5">5</div>
+        <div class="result-item" role="listitem" tabindex="0" aria-label="Resultado 11">11</div>
+        <div class="result-item" role="listitem" tabindex="0" aria-label="Resultado 21">21</div>
+        <div class="result-item" role="listitem" tabindex="0" aria-label="Resultado 31">31</div>
+        <div class="result-item" role="listitem" tabindex="0" aria-label="Resultado 4">4</div>
+      </div>
+      <p style="text-align:center; font-weight:700; margin-top:1rem;">
+        Você quer se sentir satisfeito com sua jogabilidade assim como eles? <br />
+        <button class="btn-primary" onclick="alert('Acesso ao Combo Trick solicitado!')">QUERO TER ACESSO AO COMBO TRICK</button>
+      </p>
+    </section>
+
+    <section class="features-list" aria-labelledby="features-title">
+      <h2 id="features-title" class="important">O que o Combo Trick oferece</h2>
+      <ul>
+        <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
+        <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
+        <li>HeadStreak Elite: conta apenas capa</li>
+        <li>Norecoil: precisão máxima, não espalha tiro</li>
+        <li>Puxadas XITADAS</li>
+        <li>Método Oneshot</li>
+        <li>Anti-lag + Aumento de FPS</li>
+        <li>HUD e Sensi completos do White FF</li>
+        <li>Bônus: como fazer grana jogando Free Fire</li>
+      </ul>
+    </section>
+
+    <section class="pricing-cards" aria-label="Planos e preços do Combo Trick">
+      <article class="card" aria-labelledby="plan1-title">
+        <h3 id="plan1-title">Plano Básico</h3>
+        <div class="price-old" style="text-decoration: line-through; color: #666; font-weight: 700; font-size: 1rem; text-align: center;">DE R$ 99,99</div>
+        <div class="price-new">POR APENAS R$ 24,97</div>
+        <ul>
+          <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
+          <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
+          <li>HeadStreak Elite: conta apenas capa</li>
+          <li>Norecoil: precisão máxima, não espalha tiro</li>
+          <li>Puxadas XITADAS</li>
+          <li>Método Oneshot</li>
+          <li>Anti-lag + Aumento de FPS</li>
+          <li>HUD e Sensi completos do White FF</li>
+          <li>Bônus: como fazer grana jogando Free Fire</li>
+        </ul>
+        <button class="btn-secondary" onclick="alert('Plano Básico adquirido!')">ACESSAR AGORA</button>
+      </article>
+
+      <article class="card" aria-labelledby="plan2-title">
+        <h3 id="plan2-title">Plano Intermediário</h3>
+        <div class="price-old" style="text-decoration: line-through; color: #666; font-weight: 700; font-size: 1rem; text-align: center;">DE R$ 139,99</div>
+        <div class="price-new">POR APENAS R$ 34,97</div>
+        <ul>
+          <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
+          <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
+          <li>HeadStreak Elite: conta apenas capa</li>
+          <li>Botão de atirar XITADO</li>
+          <li>Método 2x invisível: gruda atrás da parede</li>
+          <li>HeadLock para SMG’s - UMP Nível XIT</li>
+          <li>Norecoil: precisão máxima, não espalha tiro</li>
+          <li>Método Oneshot</li>
+          <li>Anti-lag + Aumento de FPS</li>
+          <li>Hud e Sensi completos do White FF + Bônus</li>
+          <li>Puxadas XITADAS</li>
+          <li>Método capa fantasma</li>
+          <li>+17 aulas em HANDCAM detalhadas</li>
+          <li>1 Bônus exclusivo: acesso aos melhores amigos do instagram</li>
+        </ul>
+        <button class="btn-secondary" onclick="alert('Plano Intermediário adquirido!')">ACESSAR AGORA</button>
+      </article>
+
+      <article class="card" aria-labelledby="plan3-title">
+        <h3 id="plan3-title">Plano Completo</h3>
+        <div class="price-old" style="text-decoration: line-through; color: #666; font-weight: 700; font-size: 1rem; text-align: center;">DE R$ 149,99</div>
+        <div class="price-new">POR APENAS R$ 39,90</div>
+        <ul>
+          <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
+          <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
+          <li>HeadStreak Elite: conta apenas capa</li>
+          <li>Botão de atirar XITADO</li>
+          <li>Método 2x invisível: gruda atrás da parede</li>
+          <li>HeadLock para SMG’s - UMP Nível XIT</li>
+          <li>Norecoil: precisão máxima, não espalha tiro</li>
+          <li>Método Oneshot</li>
+          <li>Anti-lag + Aumento de FPS</li>
+          <li>Hud e Sensi completos do White FF + Bônus</li>
+          <li>Puxadas XITADAS</li>
+          <li>Método capa fantasma</li>
+          <li>+17 aulas em HANDCAM detalhadas</li>
+          <li>1 Bônus exclusivo: acesso aos melhores amigos do instagram</li>
+          <li>2 Bônus exclusivo: como fazer grana jogando Free Fire + aulas especiais</li>
+          <li>3 Bônus exclusivo: GRUPO PRIVADO</li>
+        </ul>
+        <button class="btn-secondary" onclick="alert('Plano Completo adquirido!')">ACESSAR AGORA</button>
+      </article>
+
+      <article class="card" aria-labelledby="plan4-title">
+        <h3 id="plan4-title">Plano Premium</h3>
+        <div class="price-old" style="text-decoration: line-through; color: #666; font-weight: 700; font-size: 1rem; text-align: center;">DE R$ 199,99</div>
+        <div class="price-new">POR APENAS R$ 49,90</div>
+        <ul>
+          <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
+          <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
+          <li>HeadStreak Elite: conta apenas capa</li>
+          <li>Botão de atirar XITADO</li>
+          <li>Método 2x invisível: gruda atrás da parede</li>
+          <li>HeadLock para SMG’s - UMP Nível XIT</li>
+          <li>Norecoil: precisão máxima, não espalha tiro</li>
+          <li>Método Oneshot</li>
+          <li>Anti-lag + Aumento de FPS</li>
+          <li>Hud e Sensi completos do White FF + Bônus</li>
+          <li>Puxadas XITADAS</li>
+          <li>Método capa fantasma</li>
+          <li>+17 aulas em HANDCAM detalhadas</li>
+          <li>1 Bônus exclusivo: acesso aos melhores amigos do instagram</li>
+          <li>2 Bônus exclusivo: como fazer grana jogando Free Fire + aulas especiais</li>
+          <li>3 Bônus exclusivo: GRUPO PRIVADO</li>
+          <li>Suporte pessoal com o criador</li>
+          <li>Acesso antecipado a novos métodos</li>
+          <li>Consultoria individualizada</li>
+        </ul>
+        <button class="btn-secondary" onclick="alert('Plano Premium adquirido!')">ACESSAR AGORA</button>
+      </article>
+    </section>
+
+    <section class="guarantee" aria-labelledby="guarantee-title">
+      <h2 id="guarantee-title">Garantia Incondicional</h2>
+      <p>Se você dando só capa em 1 semana ou seu dinheiro de volta</p>
+      <p>Você quer se sentir satisfeito com sua jogabilidade assim como eles? Clique no botão abaixo.</p>
+      <button class="btn-primary" onclick="alert('Acesso ao Combo Trick solicitado!')">QUERO TER ACESSO</button>
+      <p>É o seguinte…</p>
+      <p>Se você usar e ativar tudo que tem no pack, e ainda sim estiver dando peito durante 7 dias, você terá todo seu dinheiro de volta. Simples assim.</p>
+      <p>Talvez você já tenha comprado algo que não funcionou e agora não tem certeza, né? Mas, o método Combo Trick não há igual no mercado. É um método validado e comprovado.</p>
+    </section>
+
+    <section class="mentor" aria-labelledby="mentor-title">
+      <h2 id="mentor-title">QUEM SERÁ SEU MENTOR?</h2>
+      <p>White FF, o criador dos métodos e das sensibilidades VIP</p>
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/809bf9a9-7754-4e67-a3f1-25415bf1075b.png" alt="White FF, influenciador de Free Fire em cenário urbano futurista com efeitos neon verdes, destaque para trajeto de tiro perfeito em batalha intensa com inimigos em colisão de energia elétrica" />
+      <p>White FF foi um dos primeiros criadores de conteúdo de highlights de Free Fire no Brasil, destacando-se desde o início com sua jogabilidade diferenciada.</p>
+      <p>Em 2020, ele foi amplamente reconhecido e se tornou influenciador da Garena após se tornar o maior YouTuber de highlights do Brasil, estando entre os maiores do mundo, com 2,4 milhões de inscritos em seu canal no YouTube.</p>
+      <p>Em 2022, White FF começou a compartilhar tudo o que usava para alcançar uma jogabilidade tão impressionante, mesmo jogando em celular, o que gerou algumas suspeitas. No entanto, ele logo foi reconhecido por diversos streamers e pro players famosos, sendo considerado por muitos o melhor jogador mobile do mundo.</p>
+      <p>Agora, você pode ter acesso a tudo o que ele usa para alcançar o mesmo nível de jogabilidade e reconhecimento!</p>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">F.A.Q. perguntas FREQUENTES</h2>
+      <dl>
+        <dt onclick="toggleFAQ(this)">ISSO É HACK?</dt>
         <dd>Não, o Combo Trick utiliza métodos legais e otimizações dentro das regras do jogo, como ajustes de sensibilidade e técnicas de jogabilidade avançadas.</dd>
         <dt onclick="toggleFAQ(this)">EXISTE CHANCES DE BANIMENTO?</dt>
         <dd>As técnicas são seguras e não violam os termos do Free Fire, mas sempre jogue com moderação para evitar questões.</dd>
@@ -11,10 +585,13 @@
         <dd>Aproveite a garantia de 7 dias para testar e solicitar reembolso se não estiver satisfeito.</dd>
       </dl>
     </section>
+
     <footer>
       <p>Combo Trick - Copyright 2023. Todos os direitos reservados. Produto fictício para demonstração.</p>
     </footer>
+
   </main>
+
   <script>
     function toggleFAQ(dt) {
       const dd = dt.nextElementSibling;
