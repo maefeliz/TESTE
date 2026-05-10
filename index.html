@@ -1,294 +1,832 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacote VIP - New Sensi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NEW SENSI FF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #000, #222);
-            color: #fff;
-        }
-        .bg-red-600 {
-            background-color: #dc2626;
-        }
-        .text-red-600 {
-            color: #dc2626;
-        }
-        .bg-green-500 {
-            background-color: #22c55e;
-        }
-        .text-green-500 {
-            color: #22c55e;
-        }
-        .border-red-500 {
-            border-color: #dc2626;
-        }
-        .border-green-500 {
-            border-color: #22c55e;
-        }
-        .shadow-red {
-            box-shadow: 0 0 10px #dc2626;
-        }
-        .shadow-green {
-            box-shadow: 0 0 10px #22c55e;
-        }
-        .hover-bg-red {
-            transition: background-color 0.3s;
-        }
-        .hover-bg-red:hover {
-            background-color: #b91c1c;
-        }
-        .hover-bg-green {
-            transition: background-color 0.3s;
-        }
-        .hover-bg-green:hover {
-            background-color: #16a34a;
-        }
-        .bg-black {
             background-color: #000;
-        }
-        .text-white {
-            color: #fff;
-        }
-        .font-bold {
-            font-weight: 700;
-        }
-        .text-center {
+            color: white;
             text-align: center;
+            font-family: 'Poppins', sans-serif;
         }
-        .mb-4 {
-            margin-bottom: 1rem;
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
         }
-        .mb-8 {
-            margin-bottom: 2rem;
+
+        .hero {
+            padding: 50px 15px;
         }
-        .p-4 {
-            padding: 1rem;
+
+        .hero img {
+            max-width: 120px;
+            margin-bottom: 20px;
         }
-        .p-8 {
-            padding: 2rem;
+
+        .neon-red {
+            color: #1cf300;
+            text-shadow: 0 0 5px #2bff00, 0 0 10px #005103, 0 0 20px #000000;
         }
-        .border {
-            border: 1px solid #ccc;
+/* Nova classe para neon vermelho */
+        .neon-vermelho {
+            color: #ff4d4d; /* Vermelho neon */
+            text-shadow:
+                0 0 5px #ff4d4d,
+                0 0 10px #ff4d4d,
+                0 0 20px #ff4d4d,
+                0 0 40px #ff4d4d;
         }
-        .border-b {
-            border-bottom: 1px solid #ccc;
+
+        .btn-custom {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border: solid 2px #00ff00;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
         }
-        .max-w-4xl {
-            max-width: 56rem;
+
+        .btn-custom:hover {
+            background-color: #00cc00;
+            color: white;
         }
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
+
+        .video-neon {
+            border-radius: 20px;
+            box-shadow: 0 0 10px #00ff00, 0 0 13px #00ff00;
+            overflow: hidden;
         }
-        .flex {
-            display: flex;
+
+        .video-neon iframe {
+            border: none;
+            border-radius: 20px;
         }
-        .justify-center {
-            justify-content: center;
+
+        .card {
+            color: white;
+            background-color: #121212;
+            border-radius: 1rem;
         }
-        .items-center {
-            align-items: center;
+
+        .card-img-top {
+            border-radius: 1rem 1rem 0 0;
+            object-fit: cover;
+            max-height: 180px;
+            width: 100%;
+            display: block;
         }
-        .space-y-4 > * + * {
-            margin-top: 1rem;
+
+        .star-green {
+            color: #00ff00;
+            font-size: 1.2rem;
         }
-        .space-x-4 > * + * {
-            margin-left: 1rem;
+
+        .card.text-white img {
+            border-radius: 1rem;
+            max-height: 330px;
+            object-fit: cover;
+            width: 100%;
+            margin-bottom: 15px;
         }
-        .grid {
-            display: grid;
+
+        .pacote-card ul.lista-beneficios li {
+            margin-bottom: 6px;
         }
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+
+        .pacote-card .neon-red {
+            color: #1cf300;
+            text-shadow: 0 0 5px #2bff00, 0 0 10px #005103, 0 0 20px #000000;
         }
-        .md-grid-cols-3 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        .pacote-card {
+            background-color: #000000;
+            color: #fff;
+            border: 2px solid #00ff00;
+            transition: background-color 0.3s ease;
         }
-        .gap-4 {
-            gap: 1rem;
+
+        .pacote-card .btn-custom:hover {
+            background-color: #00cc00;
+            color: white;
+            border: 2px solid #00ff00;
         }
-        .rounded-lg {
-            border-radius: 0.5rem;
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px 10px rgba(0, 255, 0, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+            }
         }
-        .rounded-xl {
-            border-radius: 0.75rem;
+
+        .btn-pulse-green {
+            background-color: #00cc00;
+            color: white;
+            border: 2px solid #00ff00;
+            animation: pulse 1.6s infinite;
+            transition: all 0.3s ease;
+            border-radius: 8px;
         }
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+
+        .btn-pulse-green:hover {
+            background-color: #00ff00;
+            color: #000;
+            transform: scale(1.1);
         }
-        .py-3 {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
+
+        #faq {
+            background-color: #0a0a0a;
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+        }
+
+        #faq h2 {
+            font-size: 2.2rem;
+            text-shadow: 0 0 6px #00ff00, 0 0 10px #005103;
+        }
+
+        .accordion-item {
+            border: 1px solid #00ff00;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-weight: bold;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-button:hover {
+            background-color: #00cc00;
+            color: #000;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        .accordion-body {
+            background-color: #121212;
+            padding: 20px;
+            font-size: 0.95rem;
+        }
+
+        .accordion-body ol {
+            padding-left: 1.2rem;
+        }
+
+        .accordion-body strong {
+            color: #00ff00;
         }
     </style>
+
+    <style>
+        .notificacao {
+            background-color: #0b8200;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0;
+            animation: aparecer 0.5s forwards, desaparecer 0.5s forwards 4.5s;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes desaparecer {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+    </style>
+
 </head>
-<body class="bg-black text-white">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-red-600 mb-4">New Sensi</h1>
-            <p class="text-green-500">Xit e Truques para Dominar o Free Fire</p>
-        </header>
-        
-              <!-- Seção do vídeo com responsividade -->
-<section class="bg-red-600 rounded-xl p-8 text-center mb-8 shadow-red">
-  <h2 class="text-2xl font-bold mb-4">Você já imaginou ter uma mira que só conta capa?</h2>
-  <p class="mb-4">Assista o vídeo abaixo e entenda:</p>
-  <!-- Container responsivo para o iframe -->
-  <div class="mx-auto rounded-lg shadow-lg mb-4 w-full max-w-[560px] aspect-[16/9]">
-    <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/b8GOu_SvXaM?si=Lzy6Cen2Vii5Ec7e" title="Combo Trick Free Fire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-  <p class="mb-4">Essas 3 ferramentas nas suas mãos, vão quebrar o Free Fire</p>
-  <button class="btn-primary bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-bold text-white" onclick="alert('Acesso solicitado!')">QUERO TER ACESSO AO COMBO TRICK</button>
-</section>
 
-        <!-- Results -->
-        <section class="mb-8">
-            <h3 class="text-2xl font-bold text-center mb-4">Resultados dos primeiros usuários do Combo Trick</h3>
-            <div class="flex justify-center space-x-4">
-                <div class="bg-green-500 text-black p-4 rounded-lg font-bold">5</div>
-                <div class="bg-green-500 text-black p-4 rounded-lg font-bold">11</div>
-                <div class="bg-green-500 text-black p-4 rounded-lg font-bold">21</div>
-                <div class="bg-green-500 text-black p-4 rounded-lg font-bold">31</div>
-                <div class="bg-green-500 text-black p-4 rounded-lg font-bold">4</div>
+<body>
+
+     <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <img src="imgs/logo.png" alt="Logo do Produto" />
+            <h1 class="display-5">
+                <span class="white-bold">ESSE NOVO PAINEL XIT! COM</span>
+                 <span class="neon-red">INTELIGÊNCIA ARTIFICIAL</span><br>
+                <span class="white-bold">DEIXOU A MIRA DE +10MIL PLAYERS DANDO</span>
+                <span class="neon-vermelho">FULL VERMELHOR!</span>
+               <span class="fs-6 mt-5">NO</span>  <span class="white-bold">FREE FIRE</span>
+            </h1>
+
+            <div class="ratio ratio-16x9 mt-4 video-neon">
+                <iframe src="https://www.youtube.com/embed/b8GOu_SvXaM" title="Vídeo de vendas"
+                    allowfullscreen></iframe>
             </div>
-            <p class="text-center mt-4">Você quer se sentir satisfeito com sua jogabilidade assim como eles? Clique abaixo!</p>
-            <button class="btn-primary bg-red-600 hover Bg-red px-6 py-3 rounded-lg font-bold text-white mx-auto block" onclick="alert('Acesso solicitado!')">QUERO TER ACESSO AO COMBO TRICK</button>
-        </section>
 
-        <!-- Plans -->
-        <section class="mb-8">
-            <h3 class="text-2xl font-bold text-center mb-4">Escolha seu Plano</h3>
-            <div class="grid grid-cols-1 md-grid-cols-3 gap-4">
-                <!-- Plan 1 -->
-                <div class="bg-white text-black p-6 rounded-lg shadow-green">
-                    <h4 class="text-xl font-bold text-green-500 mb-4">Plano Básico</h4>
-                    <p class="text-red-600 line-through">DE R$ 99,99</p>
-                    <p class="text-green-500 font-bold">POR APENAS R$ 24,97</p>
-                    <ul class="space-y-2 mb-4">
-                        <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
-                        <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
-                        <li>HeadStreak Elite: conta apenas capa</li>
-                        <li>Norecoil: precisão máxima, não espalha tiro</li>
-                        <li>Puxadas XITADAS</li>
-                        <li>Método Oneshot</li>
-                        <li>Anti-lag + Aumento de FPS</li>
-                        <li>HUD e Sensi completos do White FF</li>
-                        <li>Bônus: como fazer grana jogando Free Fire</li>
-                    </ul>
-                    <button class="bg-green-500 hover-bg-green px-6 py-3 rounded-lg font-bold text-white w-full" onclick="alert('Plano adquirido!')">ACESSAR AGORA</button>
-                </div>
-                <!-- Plan 2 -->
-                <div class="bg-white text-black p-6 rounded-lg shadow-green">
-                    <h4 class="text-xl font-bold text-green-500 mb-4">Plano Intermediário</h4>
-                    <p class="text-red-600 line-through">DE R$ 139,99</p>
-                    <p class="text-green-500 font-bold">POR APENAS R$ 34,97</p>
-                    <ul class="space-y-2 mb-4">
-                        <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
-                        <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
-                        <li>HeadStreak Elite: conta apenas capa</li>
-                        <li>Botão de atirar XITADO</li>
-                        <li>Método 2x invisível: gruda atrás da parede</li>
-                        <li>HeadLock para SMG’s - UMP Nível XIT</li>
-                        <li>Norecoil: precisão máxima, não espalha tiro</li>
-                        <li>Método Oneshot</li>
-                        <li>Anti-lag + Aumento de FPS</li>
-                        <li>Hud e Sensi completos do White FF + Bônus</li>
-                        <li>Puxadas XITADAS</li>
-                        <li>Método capa fantasma</li>
-                        <li>+17 aulas em HANDCAM detalhadas</li>
-                        <li>1 Bônus exclusivo: acesso aos melhores amigos do instagram</li>
-                    </ul>
-                    <button class="bg-green-500 hover-bg-green px-6 py-3 rounded-lg font-bold text-white w-full" onclick="alert('Plano adquirido!')">ACESSAR AGORA</button>
-                </div>
-                <!-- Plan 3 -->
-                <div class="bg-white text-black p-6 rounded-lg shadow-green">
-                    <h4 class="text-xl font-bold text-green-500 mb-4">Plano Completo</h4>
-                    <p class="text-red-600 line-through">DE R$ 149,99</p>
-                    <p class="text-green-500 font-bold">POR APENAS R$ 39,90</p>
-                    <ul class="space-y-2 mb-4">
-                        <li>2x Trick + 2x automática: sua mira 2x vai grudar de qualquer distância</li>
-                        <li>Gerador de sensibilidade: gera automaticamente uma sensi que faz a sua mira grudar apenas na cabeça</li>
-                        <li>HeadStreak Elite: conta apenas capa</li>
-                        <li>Botão de atirar XITADO</li>
-                        <li>Método 2x invisível: gruda atrás da parede</li>
-                        <li>HeadLock para SMG’s - UMP Nível XIT</li>
-                        <li>Norecoil: precisão máxima, não espalha tiro</li>
-                        <li>Método Oneshot</li>
-                        <li>Anti-lag + Aumento de FPS</li>
-                        <li>Hud e Sensi completos do White FF + Bônus</li>
-                        <li>Puxadas XITADAS</li>
-                        <li>Método capa fantasma</li>
-                        <li>+17 aulas em HANDCAM detalhadas</li>
-                        <li>1 Bônus exclusivo: acesso aos melhores amigos do instagram</li>
-                        <li>2 Bônus exclusivo: como fazer grana jogando Free Fire + aulas especiais</li>
-                        <li>3 Bônus exclusivo: GRUPO PRIVADO</li>
-                    </ul>
-                    <button class="bg-green-500 hover-bg-green px-6 py-3 rounded-lg font-bold text-white w-full" onclick="alert('Plano adquirido!')">ACESSAR AGORA</button>
+            <p class="fs-6 mt-5">
+                <strong id="contador-pessoas" class="neon-red">254</strong> pessoas estão assistindo agora!
+            </p>
+
+            <script>
+                let contador = 254;
+                const elemento = document.getElementById('contador-pessoas');
+
+                function subirPessoas() {
+                    const aumento = Math.floor(Math.random() * 5) + 1;
+                    contador += aumento;
+                    elemento.textContent = contador;
+
+                    const intervalo = Math.floor(Math.random() * 3000) + 2000;
+                    setTimeout(subirPessoas, intervalo);
+                }
+
+                subirPessoas();
+            </script>
+
+
+            <a href="#planos" class="btn btn-custom btn-lg mt-5">
+                <i class="bi bi-cart-fill me-2"></i> Quero Esse Painel VIP
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-11 col-lg-3 mt-3 rounded-4">
+                <div class="card p-3">
+                    <img src="imgs/trofeu.png" class="card-img-top" alt="Troféu - Vencer">
+                    <div class="card-body">
+                        <h5 class="card-title">Vença Todas as Partidas</h5>
+                        <p class="card-text">Com o Melhor Painel XIT, sua mira vai dar so 
+                            full vermelho usando nosso painel vip vença todos x1, Rank, CS, Apostados,
+                            tudo usando o melhor Xit 100% Anti-ban 100% Anti-black Aprovado é 100% seguro.</p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Guarantee -->
-        <section class="bg-green-500 text-black p-8 rounded-xl mb-8">
-            <h3 class="text-2xl font-bold text-center mb-4">Garantia Incondicional</h3>
-            <p>Se você dando só capa em 1 semana ou seu dinheiro de volta</p>
-            <p>É o seguinte… Se você usar e ativar tudo que tem no pack, e ainda sim estiver dando peito durante 7 dias, você terá todo seu dinheiro de volta. Simples assim.</p>
-            <p>Talvez você já tenha comprado algo que não funcionou e agora não tem certeza, né? Mas, o método Combo Trick não há igual no mercado. É um método validado e comprovado.</p>
-            <button class="btn-primary bg-red-600 hover Bg-red px-6 py-3 rounded-lg font-bold text-white mx-auto block" onclick="alert('Acesso solicitado!')">QUERO TER ACESSO</button>
-        </section>
-
-        <!-- Mentor -->
-        <section class="mb-8">
-            <h3 class="text-2xl font-bold text-center mb-4">QUEM SERÁ SEU MENTOR?</h3>
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b96f7a6-497b-4dba-b127-83b801853d70.png" alt="White FF, influenciador de Free Fire, destaque para trajeto de tiro perfeito" class="mx-auto rounded-lg mb-4">
-            <p>White FF, o criador dos métodos e das sensibilidades VIP</p>
-            <p>White FF foi um dos primeiros criadores de conteúdo de highlights de Free Fire no Brasil...</p>
-            <p>[Conteúdo das paragrafos sobre White FF]</p>
-        </section>
-
-        <!-- FAQ -->
-        <section class="bg-white text-black p-8 rounded-xl">
-            <h3 class="text-2xl font-bold text-center mb-4">F.A.Q. perguntas FREQUENTES</h3>
-            <div class="space-y-4">
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">ISSO É HACK?</summary>
-                    <p>Não, o Combo Trick utiliza métodos legais...</p>
-                </details>
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">EXISTE CHANCES DE BANIMENTO?</summary>
-                    <p>As técnicas são seguras...</p>
-                </details>
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">QUANDO RECEBO O ACESSO AO PACOTE?</summary>
-                    <p>Após a compra...</p>
-                </details>
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">QUANTO TEMPO TENHO DE ACESSO AO PACOTE?</summary>
-                    <p>O acesso é vitalício...</p>
-                </details>
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">POR ONDE TEREI ACESSO AO PACOTE?</summary>
-                    <p>Por meio de uma plataforma...</p>
-                </details>
-                <details class="border-b">
-                    <summary class="font-bold cursor-pointer">E SE EU NÃO GOSTAR DO PACOTE?</summary>
-                    <p>Aproveite a garantia...</p>
-                </details>
+            <div class="col-11 col-lg-3 mt-3">
+                <div class="card p-3 rounded-4">
+                    <img src="imgs/controle.png" class="card-img-top" alt="Controle - Jogabilidade">
+                    <div class="card-body border-4">
+                        <h5 class="card-title">Jogabilidade Profissional</h5>
+                        <p class="card-text">Transforme sua jogabilidade com comandos precisos e Respostas rápidas
+                            do Painel Vip com zero delay Aproveite Agora o Melhor Painel.</p>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer class="text-center mt-8">
-            <p>Copyright 2023 Combo Trick. Todos os direitos reservados. Produto fictício para demonstração.</p>
-        </footer>
+            <div class="col-11 col-lg-3 mt-3">
+                <div class="card p-3 rounded-4">
+                    <img src="imgs/velocimetro.png" class="card-img-top" alt="Velocímetro - Desempenho">
+                    <div class="card-body">
+                        <h5 class="card-title">Desempenho Turbinado!</h5>
+                        <p class="card-text">Tenha resposta rápida e performance máxima Nos dispositivos Android e iPhone/iOS.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+    <div id="Sobre" class="py-5" style="background-color: #0a0a0a;">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center mt-5">
+            <div class="col-12 col-lg-6 mb-4 fade-in">
+                <img src="imgs/logo.png" class="img-fluid rounded w-50 shadow-lg" alt="Sobre o XIT Free Fire" />
+            </div>
+            <div class="col-12 col-lg-5 fade-in" style="padding-left: 20px;">
+                <p class="lead text-center text-lg-start fs-2"
+                    style="color: #00cc11; font-weight: 600; text-shadow: 0 0 5px rgba(0, 204, 102, 0.5);">
+                    <strong>CONHEÇA MELHOR QUEM CRIOU O CONTEÚDO</strong><br><br>
+                    New SENSI FF<br><br>
+                </p>
+                <p class="lead text-white text-center text-lg-start fs-5">
+                    Descubra os Melhores painéis VIP e métodos exclusivos usados até mesmo pelo o Famoso Fantasma FF para dar full capa no Free Fire sem ser 
+                    descoberto ou banido 100% disfaçado! Totalmente Oculto.
+                  
+                    100% ANTI-BAN e 100% ANTI-BLACKLIST, com proteção do seu ID e IP para 100% de sua segurança.<br><br>
+
+                    Com tecnologia permitida pela Garena, com rastreamento de cabeça, tenha mais precisão de mira,
+                    Compatível com Android e iPhone, ainda recebe os bônus exclusivos com os segredos dos
+                    famosos!<br><br>
+
+                    Já são mais de 10 mil jogadores usando. Entre agora para o time dos insanos!
+                    
+                    Lembre-se de que isso Vai Fazer de vocé um jogado Mais insano possivel!, 
+                    Nos não usarmos Arquivos que podem resultar em banimento da sua conta e 100% Garantido.<br><br>
+
+                    Siga-nos no Instagram Oficial: <strong>@new.sensi.ff</strong>
+                </p>
+                <div class="text-center text-lg-start mt-4">
+                    <a href="#planos" class="btn btn-custom btn-lg px-4">
+                        Quero meu painel VIP!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="text-center my-5">
+        <h1 class="display-2  text-light">
+            Escolha seu pacote <span class="neon-red">VIP</span> de acesso único abaixo
+        </h1>
+    </div>
+
+
+    <div class="card pacote-card p-4 rounded-4 shadow-lg text-white mx-auto"
+        style="max-width: 350px; background-color: #121212;">
+        <div class="col-12 col-lg-6 mb-4 fade-in">
+            <img src="imgs/logo.png" class="img-fluid rounded w-50 shadow-lg" alt="Sobre o XIT Free Fire" />
+        </div>
+
+        <div class="col-12 col-lg-6 mb-4 fade-in">
+            <img src="imgs/iphone.png" class="img-fluid rounded w-50" alt="Painel CLT VIP" />
+        </div>
+
+        <h1 class="mb-3 white-bold text-center text-align" style="font-size: 2.0rem; color: #00cc00;">
+            IPHONE / iOS
+        </h1>
+
+        <p class="mb-3 white-bold" style="font-size: 0.8rem;">
+            Aproveite o melhor XIT para seu iPhone
+        </p>
+        <hr style="border-color: #00ff00;">
+        <ul class="lista-beneficios mb-4" style="list-style: none; padding-left: 0; text-align: left;">
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Função HS pescoço + Bypass</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Mira automática 100% capa</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> 2x Automática</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Rastreamento de cabeça</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Aimbot Cabeça</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> UMP AUTOMÁTICA</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Disfarce anti-ban</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Sensi VIP full capa</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Aim Regedit</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> 2x Aimbot</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> HeadShot</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Mira que grudar</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> VPN-DNS</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Instalação fácil e rápida</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Instalar sem precisar de PC (opcional com PC)</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> 100% ANTI BAN!</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> 100% ANTI-BLACK LIST!</li>
+            <li> <i class="bi bi-check-circle-fill star-green"></i> Suporte pessoal via WhatsApp Oficial</li>
+        </ul>
+        <div class="preco text-center mb-4">
+            <h3 class="fs-6 text-decoration-line-through mb-1"
+                style="color: red !important; font-size: 30px !important;">De R$ 149,97</p>
+                <h2 class="neon-red fw-bold mb-2">por apenas R$ 29,90</h2>
+                <p class="fs-6 white-bold">POR TEMPO LIMITADO!!</p>
+                <p class="fs-6 white-bold">TODOS OS IPHONE/iOS</p>
+        </div>
+        <a href="https://pay.hotmart.com/M100396507C?checkoutMode=10"
+            class="btn btn-pulse-green fw-bold px-4 py-2">
+            COMPRAR AGORA
+        </a>
+    </div>
+
+
+    <div class="card pacote-card p-4 rounded-4 shadow-lg text-white mx-auto mt-5"
+        style="max-width: 350px; background-color: #121212;">
+        <div class="col-12 col-lg-6 mb-4 fade-in">
+            <img src="imgs/logo.png" class="img-fluid rounded w-50 shadow-lg" alt="XIT Android" />
+        </div>
+
+        <div class="col-12 col-lg-6 mb-4 fade-in">
+            <img src="imgs/android.png" class="img-fluid rounded w-50" alt="Painel CLT VIP" />
+        </div>
+
+        <h1 class="mb-3 white-bold text-center text-align" style="font-size: 2.0rem; color: #00cc00;">
+            ANDROID
+        </h1>
+
+        <p class="mb-3 white-bold" style="font-size: 0.8rem;">
+            Aproveite o melhor XIT para seu Android
+        </p>
+        <hr style="border-color: #00ff00;">
+        <ul class="lista-beneficios mb-4" style="list-style: none; padding-left: 0; text-align: left;">
+            <li><i class="bi bi-check-circle-fill star-green"></i> Função HS pescoço + Bypass</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Mira automática 100% capa</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 2x Automática</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Rastreamento de cabeça</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Aimbot Cabeça</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> UMP AUTOMÁTICA</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Disfarce anti-ban</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Sensi VIP full capa</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Aim Regedit</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 2x Aimbot</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> HeadShot</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Mira que grudar</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> VPN-DNS</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Instalação fácil e rápida</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Instalar sem precisar de PC (opcional com PC)</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 100% ANTI BAN!</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 100% ANTI-BLACK LIST!</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Suporte pessoal via WhatsApp Oficial</li>
+        </ul>
+        <div class="preco text-center mb-4">
+            <h3 class="fs-6 text-decoration-line-through mb-1"
+                style="color: red !important; font-size: 30px !important;">De R$ 149,97</p>
+                <h2 class="neon-red fw-bold mb-2">por apenas R$ 29,90</h2>
+                <p class="fs-6 white-bold">POR TEMPO LIMITADO!!</p>
+                <p class="fs-6 white-bold">TODOS OS ANDROID</p>
+        </div>
+        <a href="https://pay.hotmart.com/L100397212P?checkoutMode=10"
+            class="btn btn-pulse-green fw-bold px-4 py-2">
+            COMPRAR AGORA
+        </a>
+
+    </div>
+
+
+    <div class="card pacote-card p-4 rounded-4 shadow-lg text-white mx-auto mt-5" id="planos"
+        style="max-width: 350px; background-color: #121212;">
+        <div class="col-12 col-lg-6 mb-4 fade-in">
+            <img src="imgs/logo.png" class="img-fluid rounded w-50 shadow-lg" alt="Painel CLT VIP" />
+        </div>
+
+        <div class="col-12 col-lg-6 fade-in">
+            <img src="imgs/CLT.jpg" class="img-fluid rounded w-60" alt="Painel CLT VIP" />
+        </div>
+
+        <div class="text-center">
+            <h1 class="display-2 text-light">
+                Painel CLT <span class="neon-red">VIP</span>
+            </h1>
+        </div>
+
+        <div id="notificacoes" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;"></div>
+
+
+
+        <p class="mb-3 white-bold text-center" style="font-size: 0.8rem;">
+            Melhor Painel CLT para Android e iPhone/iOS
+        </p>
+        <hr style="border-color: #00ff00;">
+        <ul class="lista-beneficios mb-4" style="list-style: none; padding-left: 0; text-align: left;">
+            <li><i class="bi bi-check-circle-fill star-green"></i> Painel VIP exclusivo Android/iPhone</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Rastreamento de cabeça</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Mira automática 100% capa</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Rastreamento com mira aberta</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> UMP automática</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 2x Aimbot</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Painel disfarçado de carteira de trabalho</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Aim Regedit</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Aim Lock</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> HeadShot</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> No Recoil (não espalha tiro)</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Mira que gruda</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> 100% ANTI-BAN e ANTI-BLACK LIST</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> BÔNUS: acesso às ferramentas secretas</li>
+            <li><i class="bi bi-check-circle-fill star-green"></i> Suporte pessoal via WhatsApp Oficial</li>
+        </ul>
+        <div class="preco text-center mb-4">
+            <h3 class="fs-6 text-decoration-line-through mb-1"
+                style="color: red !important; font-size: 30px !important;">De R$ 214,97</p>
+                <h2 class="neon-red fw-bold mb-2">por apenas R$ 49,90</h2>
+                <p class="fs-6 white-bold">ACESSO VITALÍCIO AO PAINEL CLT!</p>
+        </div>
+        <a href="https://go.perfectpay.com.br/PPU38CPQM3H"
+            class="btn btn-pulse-green fw-bold px-4 py-2">
+            COMPRAR AGORA
+        </a>
+    </div>
+
+    <div class="text-center p-3 mt-2">
+        <h1 class="display-2 text-light">
+            Veja abaixo alguns
+            <span class="neon-red">
+                FeedBacks clientes
+            </span>
+        </h1>
+    </div>
+
+
+
+
+    <div id="carouselDepoimentos" class="carousel slide container py-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (1).jpg" alt="Depoimento 1" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (2).jpg" alt="Depoimento 2" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (3).jpg" alt="Depoimento 3" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (4).jpg" alt="Depoimento 3" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (5).jpg" alt="Depoimento 3" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-white text-center p-4 rounded-4"
+                        style="background-color: #121212; width: 90%; max-width: 400px;">
+                        <img src="imgs/pvsocial (6).jpg" alt="Depoimento 3" class="img-fluid">
+                        <div class="mb-2 mt-2">
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                            <i class="bi bi-star-fill star-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+
+    <div class="container py-5">
+        <div class="row align-items-center justify-content-center text-white text-center">
+            <div class="col-12 col-md-4 mb-4">
+                <img src="imgs/garantia.webp" alt="Garantia" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-12 col-md-6">
+                <h4 class="mb-3">Garantia de Satisfação</h4>
+                <p class="fs-5">
+                    Você tem <strong>7 dias de garantia</strong> para testar tudo sem compromisso. Se não ficar
+                    satisfeito, devolvemos seu dinheiro sem enrolação. <br><br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container py-5" id="faq">
+        <h2 class="text-center mb-4 neon-red" style="font-family: 'Bebas Neue', cursive;">Perguntas Frequentes (FAQ)
+        </h2>
+        <div class="accordion accordion-flush" id="faqAccordion">
+
+            <!-- PERGUNTA 1 -->
+            <div class="accordion-item" style="background-color: #121212; color: white;">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed bg-dark text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false"
+                        aria-controls="faqCollapse1">
+                        PARA QUEM É ESSE PRODUTO?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faq1"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Público-alvo: jogadores de Free Fire. <br><br>
+                        <strong>Aviso:</strong> nunca compre com desconhecidos que pedem Pix direto pra conta bancária,
+                        pois você pode não receber nada. Aqui, seu pagamento é 100% seguro e você recebe o produto na
+                        hora.
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 2 -->
+            <div class="accordion-item" style="background-color: #121212; color: white;">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed bg-dark text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false"
+                        aria-controls="faqCollapse2">
+                        COMO FUNCIONA O PRAZO DE GARANTIA?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Você tem até <strong>7 dias de Garantia</strong> para pedir o reembolso integral se não ficar
+                        satisfeito com o produto.
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 3 -->
+            <div class="accordion-item" style="background-color: #121212; color: white;">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed bg-dark text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false"
+                        aria-controls="faqCollapse3">
+                        COMO VOU RECEBER O MEU PRODUTO?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Assim que o pagamento for confirmado, você receberá automaticamente por e-mail (Gmail).
+                        <br><strong>Pagou, recebeu!</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 4 -->
+            <div class="accordion-item" style="background-color: #121212; color: white;">
+                <h2 class="accordion-header" id="faq4">
+                    <button class="accordion-button collapsed bg-dark text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false"
+                        aria-controls="faqCollapse4">
+                        COMO ACESSAR O PRODUTO?
+                    </button>
+                </h2>
+                <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Você receberá acesso por e-mail. Também pode acessar pelo site oficial da plataforma:
+                        <ol class="mt-2">
+                            <li>Faça login na plataforma clicando em <strong>'Entrar'</strong></li>
+                            <li>No menu lateral, clique em <strong>'Minha conta'</strong></li>
+                            <li>Depois em <strong>'Minhas compras'</strong> — lá estarão todos os seus produtos!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-5">
+        <div class="container">
+            <p class="mb-2" style="font-size: 12px;">&copy; 2025 Todos os direitos reservados.</p>
+            <p class="mb-2" style="font-size: 12px;">&copy; New Sensi FF</p>
+            <p class="mb-0">Developed by <strong>Nevy</strong></p>
+        </div>
+    </footer>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3525977697696631');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=3525977697696631&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script>
+        const nomes = ["João", "Maria", "Carlos", "Ana", "Lucas", "Juliana", "Rafaela", "Pedro"];
+        const acoes = [
+            "acabou de adquirir o painel CLT",
+            "realizou uma compra",
+            "confirmou o pagamento"
+        ];
+
+        function mostrarNotificacao() {
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const acao = acoes[Math.floor(Math.random() * acoes.length)];
+            const mensagem = `${nome} ${acao}`;
+
+            const notificacao = document.createElement("div");
+            notificacao.className = "notificacao";
+            notificacao.innerHTML = `<i class="bi bi-check-circle" style="margin-right: 8px;"></i> ${mensagem}`;
+
+            document.getElementById("notificacoes").appendChild(notificacao);
+
+            setTimeout(() => {
+                notificacao.remove();
+            }, 5000);
+        }
+
+        function loopNotificacoes() {
+            mostrarNotificacao();
+            const tempo = Math.floor(Math.random() * 7000) + 8000;
+            setTimeout(loopNotificacoes, tempo);
+        }
+
+        window.onload = loopNotificacoes;
+    </script>
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
-</content>
-</create_file>
